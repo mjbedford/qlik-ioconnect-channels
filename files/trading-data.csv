@@ -1,0 +1,26 @@
+Ticker,Company Name,Sector,Trader,Trade Date,Quantity,Price,Trade Value,Commission,P&L,Trade Type
+AAPL,Apple Inc,Technology,John Smith,2024-12-01,1000,175.50,175500,87.75,5250,Buy
+MSFT,Microsoft Corp,Technology,Sarah Chen,2024-12-01,500,380.25,190125,95.06,-2340,Sell
+GOOGL,Alphabet Inc,Technology,Mike Johnson,2024-12-02,750,142.80,107100,53.55,3210,Buy
+JPM,JPMorgan Chase,Financial,Emma Wilson,2024-12-02,2000,155.90,311800,155.90,9354,Buy
+BAC,Bank of America,Financial,John Smith,2024-12-03,1500,32.45,48675,24.34,-975,Sell
+GS,Goldman Sachs,Financial,Sarah Chen,2024-12-03,800,385.20,308160,154.08,9245,Buy
+TSLA,Tesla Inc,Automotive,Mike Johnson,2024-12-04,600,238.75,143250,71.63,4298,Buy
+F,Ford Motor,Automotive,Emma Wilson,2024-12-04,3000,12.85,38550,19.28,-771,Sell
+GM,General Motors,Automotive,John Smith,2024-12-05,2500,41.20,103000,51.50,3090,Buy
+AMZN,Amazon.com,Technology,Sarah Chen,2024-12-05,400,178.50,71400,35.70,2142,Buy
+XOM,Exxon Mobil,Energy,Mike Johnson,2024-12-06,1200,105.80,126960,63.48,3809,Buy
+CVX,Chevron Corp,Energy,Emma Wilson,2024-12-06,900,143.25,128925,64.46,-2578,Sell
+JNJ,Johnson & Johnson,Healthcare,John Smith,2024-12-07,1100,157.40,173140,86.57,5194,Buy
+PFE,Pfizer Inc,Healthcare,Sarah Chen,2024-12-07,2200,28.95,63690,31.85,-1274,Sell
+UNH,UnitedHealth,Healthcare,Mike Johnson,2024-12-08,500,525.60,262800,131.40,7884,Buy
+WMT,Walmart Inc,Retail,Emma Wilson,2024-12-08,1800,72.35,130230,65.12,3907,Buy
+HD,Home Depot,Retail,John Smith,2024-12-09,700,385.90,270130,135.07,8104,Buy
+TGT,Target Corp,Retail,Sarah Chen,2024-12-09,1500,147.25,220875,110.44,-4418,Sell
+BA,Boeing Co,Aerospace,Mike Johnson,2024-12-10,900,173.80,156420,78.21,4693,Buy
+LMT,Lockheed Martin,Aerospace,Emma Wilson,2024-12-10,600,465.30,279180,139.59,8375,Buy
+DIS,Walt Disney,Media,John Smith,2024-12-11,2000,94.50,189000,94.50,5670,Buy
+NFLX,Netflix Inc,Media,Sarah Chen,2024-12-11,450,485.20,218340,109.17,6550,Buy
+NVDA,NVIDIA Corp,Technology,Mike Johnson,2024-12-11,300,495.80,148740,74.37,4462,Buy
+AMD,Advanced Micro,Technology,Emma Wilson,2024-12-11,1100,138.65,152515,76.26,-3050,Sell
+INTC,Intel Corp,Technology,John Smith,2024-12-11,2500,43.20,108000,54.00,3240,Buy

@@ -1,0 +1,21 @@
+Customer,Product,Region,Quantity,Sales,Profit,Status
+Acme Corp,Software,North America,10,125000,50000,Active
+Global Tech,Hardware,Europe,5,89500,35800,Active
+TechStart,Services,Asia,15,187500,75000,Pending
+Finance Ltd,Software,North America,8,96000,38400,Active
+DataCorp,Hardware,Europe,12,156000,62400,Active
+Innovation Labs,Software,Asia,20,250000,100000,Active
+Metro Bank,Services,North America,6,78000,31200,Pending
+Retail Giant,Hardware,Europe,25,312500,125000,Active
+StartUp Inc,Software,North America,7,87500,35000,Inactive
+Healthcare Plus,Services,Asia,10,130000,52000,Active
+Insurance Co,Software,Europe,18,225000,90000,Active
+Manufacturing,Hardware,North America,14,182000,72800,Pending
+Energy Corp,Services,Asia,9,117000,46800,Active
+Logistics Inc,Software,Europe,11,137500,55000,Active
+Pharma Solutions,Hardware,North America,16,208000,83200,Active
+Telecom Networks,Services,Asia,13,169000,67600,Active
+Real Estate,Software,Europe,8,100000,40000,Inactive
+Media Corp,Hardware,North America,22,286000,114400,Active
+Education Systems,Services,Asia,7,91000,36400,Pending
+Automotive Inc,Software,Europe,19,237500,95000,Active

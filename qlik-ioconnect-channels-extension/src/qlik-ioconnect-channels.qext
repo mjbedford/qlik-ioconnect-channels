@@ -1,0 +1,21 @@
+{
+  "name": "io.Connect Channels Publisher",
+  "description": "Publish data from Qlik visualizations to io.Connect channels with a single click",
+  "type": "visualization",
+  "version": "1.0.0",
+  "icon": "extension",
+  "author": "interop.io",
+  "homepage": "https://interop.io",
+  "keywords": [
+    "qlik",
+    "interop",
+    "io.connect",
+    "channels",
+    "integration"
+  ],
+  "license": "MIT",
+  "repository": "",
+  "dependencies": {
+    "qlik-sense": ">=3.0.0"
+  }
+}

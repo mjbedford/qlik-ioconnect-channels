@@ -1,0 +1,32 @@
+{
+  "name": "qlik-ioconnect-channels",
+  "version": "1.0.0",
+  "description": "Qlik Sense extension for publishing data to io.Connect channels",
+  "main": "dist/qlik-ioconnect-channels.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "package": "npm run build && node scripts/package.js",
+    "zip": "node scripts/package.js"
+  },
+  "keywords": [
+    "qlik",
+    "qlik-sense",
+    "extension",
+    "io.connect",
+    "interop"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@interopio/browser": "^3.2.1"
+  },
+  "devDependencies": {
+    "archiver": "^6.0.1",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

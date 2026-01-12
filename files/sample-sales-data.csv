@@ -1,0 +1,67 @@
+Customer Name,Product Category,Region,Sales Rep,Order Date,Quantity,Sales Amount,Cost,Profit,Status
+Acme Corporation,Software,North America,John Smith,2024-01-15,10,125000,75000,50000,Completed
+Global Industries,Hardware,Europe,Sarah Jones,2024-01-18,5,89500,53700,35800,Completed
+TechStart Inc,Software,Asia Pacific,Mike Chen,2024-01-22,15,187500,112500,75000,Completed
+Finance Solutions Ltd,Services,Europe,Emma Wilson,2024-02-01,8,96000,57600,38400,Completed
+DataCorp Systems,Hardware,North America,John Smith,2024-02-05,12,156000,93600,62400,Pending
+Innovation Labs,Software,Asia Pacific,Mike Chen,2024-02-10,20,250000,150000,100000,Completed
+Metro Bank,Services,North America,Sarah Jones,2024-02-15,6,78000,46800,31200,Completed
+Retail Giant Co,Hardware,Europe,Emma Wilson,2024-02-20,25,312500,187500,125000,Completed
+StartUp Ventures,Software,North America,John Smith,2024-02-25,7,87500,52500,35000,Cancelled
+Healthcare Plus,Services,Asia Pacific,Mike Chen,2024-03-01,10,130000,78000,52000,Completed
+Insurance Group,Software,Europe,Sarah Jones,2024-03-05,18,225000,135000,90000,Completed
+Manufacturing Ltd,Hardware,North America,Emma Wilson,2024-03-10,14,182000,109200,72800,Completed
+Energy Corp,Services,Asia Pacific,John Smith,2024-03-15,9,117000,70200,46800,Pending
+Logistics Inc,Software,Europe,Mike Chen,2024-03-20,11,137500,82500,55000,Completed
+Pharma Solutions,Hardware,North America,Sarah Jones,2024-03-25,16,208000,124800,83200,Completed
+Telecom Networks,Services,Asia Pacific,Emma Wilson,2024-04-01,13,169000,101400,67600,Completed
+Real Estate Group,Software,Europe,John Smith,2024-04-05,8,100000,60000,40000,Completed
+Media Corp,Hardware,North America,Mike Chen,2024-04-10,22,286000,171600,114400,Completed
+Education Systems,Services,Asia Pacific,Sarah Jones,2024-04-15,7,91000,54600,36400,Pending
+Automotive Inc,Software,Europe,Emma Wilson,2024-04-20,19,237500,142500,95000,Completed
+Construction Co,Hardware,North America,John Smith,2024-04-25,15,195000,117000,78000,Completed
+Hospitality Group,Services,Asia Pacific,Mike Chen,2024-05-01,11,143000,85800,57200,Completed
+Transport Solutions,Software,Europe,Sarah Jones,2024-05-05,9,112500,67500,45000,Completed
+Chemical Industries,Hardware,North America,Emma Wilson,2024-05-10,24,312000,187200,124800,Completed
+Food Services Ltd,Services,Asia Pacific,John Smith,2024-05-15,6,78000,46800,31200,Cancelled
+Aerospace Corp,Software,Europe,Mike Chen,2024-05-20,17,212500,127500,85000,Completed
+Mining Operations,Hardware,North America,Sarah Jones,2024-05-25,13,169000,101400,67600,Completed
+Consulting Firm,Services,Asia Pacific,Emma Wilson,2024-06-01,10,130000,78000,52000,Completed
+Shipping Lines,Software,Europe,John Smith,2024-06-05,14,175000,105000,70000,Completed
+Utilities Corp,Hardware,North America,Mike Chen,2024-06-10,21,273000,163800,109200,Pending
+Entertainment Ltd,Services,Asia Pacific,Sarah Jones,2024-06-15,8,104000,62400,41600,Completed
+Publishing House,Software,Europe,Emma Wilson,2024-06-20,12,150000,90000,60000,Completed
+Sports Equipment,Hardware,North America,John Smith,2024-06-25,18,234000,140400,93600,Completed
+Agricultural Co,Services,Asia Pacific,Mike Chen,2024-07-01,9,117000,70200,46800,Completed
+Security Systems,Software,Europe,Sarah Jones,2024-07-05,16,200000,120000,80000,Completed
+Textile Mills,Hardware,North America,Emma Wilson,2024-07-10,11,143000,85800,57200,Completed
+Fashion Retail,Services,Asia Pacific,John Smith,2024-07-15,7,91000,54600,36400,Pending
+Furniture Makers,Software,Europe,Mike Chen,2024-07-20,20,250000,150000,100000,Completed
+Electronics Co,Hardware,North America,Sarah Jones,2024-07-25,23,299000,179400,119600,Completed
+Gaming Studios,Services,Asia Pacific,Emma Wilson,2024-08-01,10,130000,78000,52000,Completed
+Cloud Services Inc,Software,Europe,John Smith,2024-08-05,15,187500,112500,75000,Completed
+Investment Bank,Services,North America,Mike Chen,2024-08-10,12,156000,93600,62400,Completed
+Trading Platform,Software,Asia Pacific,Sarah Jones,2024-08-15,19,237500,142500,95000,Completed
+Wealth Management,Services,Europe,Emma Wilson,2024-08-20,8,104000,62400,41600,Cancelled
+Fintech Solutions,Software,North America,John Smith,2024-08-25,14,175000,105000,70000,Completed
+Blockchain Corp,Hardware,Asia Pacific,Mike Chen,2024-09-01,17,221000,132600,88400,Completed
+Analytics Platform,Software,Europe,Sarah Jones,2024-09-05,11,137500,82500,55000,Completed
+CRM Solutions,Services,North America,Emma Wilson,2024-09-10,13,169000,101400,67600,Pending
+ERP Systems,Software,Asia Pacific,John Smith,2024-09-15,16,200000,120000,80000,Completed
+Supply Chain Tech,Hardware,Europe,Mike Chen,2024-09-20,22,286000,171600,114400,Completed
+AI Research Lab,Services,North America,Sarah Jones,2024-09-25,9,117000,70200,46800,Completed
+Robotics Inc,Software,Asia Pacific,Emma Wilson,2024-10-01,18,225000,135000,90000,Completed
+IoT Devices,Hardware,Europe,John Smith,2024-10-05,25,325000,195000,130000,Completed
+Smart Home Tech,Services,North America,Mike Chen,2024-10-10,10,130000,78000,52000,Completed
+Quantum Computing,Software,Asia Pacific,Sarah Jones,2024-10-15,21,262500,157500,105000,Completed
+Cybersecurity Ltd,Services,Europe,Emma Wilson,2024-10-20,14,182000,109200,72800,Completed
+Network Solutions,Hardware,North America,John Smith,2024-10-25,19,247000,148200,98800,Completed
+Data Analytics,Software,Asia Pacific,Mike Chen,2024-11-01,12,150000,90000,60000,Pending
+Business Intel,Services,Europe,Sarah Jones,2024-11-05,15,195000,117000,78000,Completed
+Machine Learning,Software,North America,Emma Wilson,2024-11-10,17,212500,127500,85000,Completed
+Deep Learning Co,Hardware,Asia Pacific,John Smith,2024-11-15,20,260000,156000,104000,Completed
+Neural Networks,Services,Europe,Mike Chen,2024-11-20,11,143000,85800,57200,Completed
+Computer Vision,Software,North America,Sarah Jones,2024-11-25,16,200000,120000,80000,Completed
+NLP Systems,Hardware,Asia Pacific,Emma Wilson,2024-12-01,23,299000,179400,119600,Completed
+Voice Tech Inc,Services,Europe,John Smith,2024-12-05,13,169000,101400,67600,Completed
+Virtual Reality,Software,North America,Mike Chen,2024-12-10,18,225000,135000,90000,Completed

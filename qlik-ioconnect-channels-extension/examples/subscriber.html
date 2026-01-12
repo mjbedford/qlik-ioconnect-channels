@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>io.Connect Channel Subscriber - Example</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    h1 {
+      color: #333;
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 10px;
+    }
+    
+    .status {
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    
+    .status.connected {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .status.disconnected {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .config {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .config label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .config input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    
+    button {
+      background-color: #0066cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    
+    button:hover {
+      background-color: #0052a3;
+    }
+    
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .data-display {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .message {
+      background-color: #e7f3ff;
+      border-left: 4px solid #0066cc;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 3px;
+    }
+    
+    .message .timestamp {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    
+    .message .source {
+      font-size: 12px;
+      color: #0066cc;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    
+    .data-table th {
+      background-color: #f8f8f8;
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ddd;
+      font-weight: bold;
+    }
+    
+    .data-table td {
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+    
+    .no-data {
+      text-align: center;
+      color: #999;
+      padding: 40px;
+      font-style: italic;
+    }
+    
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 3px;
+      overflow-x: auto;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔌 io.Connect Channel Subscriber</h1>
+  
+  <div id="status" class="status disconnected">
+    ⚠️ Not connected to io.Connect
+  </div>
+  
+  <div class="config">
+    <h3>Configuration</h3>
+    <label for="gatewayUrl">Gateway URL:</label>
+    <input type="text" id="gatewayUrl" value="http://localhost:8385">
+    
+    <label for="channelName">Channel Name:</label>
+    <input type="text" id="channelName" value="QlikData">
+    
+    <button id="connectBtn">Connect</button>
+    <button id="clearBtn">Clear Messages</button>
+  </div>
+  
+  <div class="data-display">
+    <h3>Received Messages</h3>
+    <div id="messagesContainer">
+      <div class="no-data">
+        No messages received yet. Publish data from Qlik Sense to see it here.
+      </div>
+    </div>
+  </div>
+
+  <!-- Load io.Connect Browser library -->
+  <script src="https://unpkg.com/@interopio/browser@latest/dist/browser.umd.min.js"></script>
+  
+  <script>
+    let ioInstance = null;
+    let messageCount = 0;
+    
+    const statusEl = document.getElementById('status');
+    const connectBtn = document.getElementById('connectBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const messagesContainer = document.getElementById('messagesContainer');
+    const gatewayUrlInput = document.getElementById('gatewayUrl');
+    const channelNameInput = document.getElementById('channelName');
+    
+    // Connect to io.Connect
+    async function connect() {
+      try {
+        connectBtn.disabled = true;
+        connectBtn.textContent = 'Connecting...';
+        
+        const gatewayUrl = gatewayUrlInput.value;
+        const channelName = channelNameInput.value;
+        
+        // Initialize io.Connect Browser
+        ioInstance = await IOBrowser({
+          gateway: {
+            location: gatewayUrl
+          },
+          channels: {
+            enabled: true
+          }
+        });
+        
+        console.log('✓ Connected to io.Connect. Version:', ioInstance.version);
+        
+        // Subscribe to channel
+        await ioInstance.channels.subscribe(channelName, (data, context) => {
+          console.log('Received data on channel:', channelName, data);
+          displayMessage(data, channelName);
+        });
+        
+        // Update UI
+        statusEl.className = 'status connected';
+        statusEl.textContent = `✓ Connected to ${gatewayUrl} - Subscribed to "${channelName}"`;
+        connectBtn.textContent = 'Connected';
+        
+        // Disable inputs
+        gatewayUrlInput.disabled = true;
+        channelNameInput.disabled = true;
+        
+      } catch (error) {
+        console.error('Connection error:', error);
+        statusEl.className = 'status disconnected';
+        statusEl.textContent = `✗ Connection failed: ${error.message}`;
+        connectBtn.disabled = false;
+        connectBtn.textContent = 'Connect';
+      }
+    }
+    
+    // Display received message
+    function displayMessage(data, channelName) {
+      // Remove "no data" message if present
+      const noData = messagesContainer.querySelector('.no-data');
+      if (noData) {
+        noData.remove();
+      }
+      
+      messageCount++;
+      
+      // Create message element
+      const messageEl = document.createElement('div');
+      messageEl.className = 'message';
+      messageEl.innerHTML = `
+        <div class="timestamp">📅 ${new Date(data.timestamp || Date.now()).toLocaleString()}</div>
+        <div class="source">📊 Source: ${data.source || 'Unknown'} | Channel: ${channelName} | Message #${messageCount}</div>
+        <strong>Row ${data.rowIndex !== undefined ? data.rowIndex + 1 : 'N/A'} Data:</strong>
+        ${renderDataTable(data.data)}
+        <details style="margin-top: 10px;">
+          <summary style="cursor: pointer; color: #0066cc;">View Raw JSON</summary>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        </details>
+      `;
+      
+      // Insert at top
+      messagesContainer.insertBefore(messageEl, messagesContainer.firstChild);
+      
+      // Keep only last 20 messages
+      while (messagesContainer.children.length > 20) {
+        messagesContainer.removeChild(messagesContainer.lastChild);
+      }
+    }
+    
+    // Render data as table
+    function renderDataTable(data) {
+      if (!data || typeof data !== 'object') {
+        return '<p>No data</p>';
+      }
+      
+      let html = '<table class="data-table">';
+      html += '<thead><tr><th>Field</th><th>Value</th><th>Number</th></tr></thead>';
+      html += '<tbody>';
+      
+      for (const [key, value] of Object.entries(data)) {
+        const text = value.text || value.toString();
+        const num = value.number !== undefined ? value.number : '-';
+        html += `<tr><td><strong>${key}</strong></td><td>${text}</td><td>${num}</td></tr>`;
+      }
+      
+      html += '</tbody></table>';
+      return html;
+    }
+    
+    // Clear messages
+    function clearMessages() {
+      messagesContainer.innerHTML = '<div class="no-data">Messages cleared. Waiting for new data...</div>';
+      messageCount = 0;
+    }
+    
+    // Event listeners
+    connectBtn.addEventListener('click', connect);
+    clearBtn.addEventListener('click', clearMessages);
+    
+    // Auto-connect on load (optional)
+    // connect();
+  </script>
+</body>
+</html>
