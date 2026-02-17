@@ -1,0 +1,251 @@
+/* Container */
+.ioconnect-container {
+  padding: 10px;
+  font-family: 'QlikView Sans', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Connection Status */
+.io-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+}
+
+.io-status.connected {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #2e7d32;
+}
+
+.io-status.disconnected {
+  background-color: #fff3e0;
+  border-color: #ff9800;
+  color: #e65100;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: pulse 2s infinite;
+}
+
+.io-status.connected .status-indicator {
+  background-color: #4caf50;
+}
+
+.io-status.disconnected .status-indicator {
+  background-color: #ff9800;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.io-connect-btn {
+  margin-left: auto;
+  padding: 4px 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.io-connect-btn:hover {
+  background-color: #0052a3;
+}
+
+.io-connect-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Table Styles */
+.io-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background-color: white;
+}
+
+.io-data-table thead {
+  background-color: #f8f8f8;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.io-data-table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.io-data-table th.dimension {
+  background-color: #e3f2fd;
+}
+
+.io-data-table th.measure {
+  background-color: #f3e5f5;
+}
+
+.io-data-table th.action-column {
+  text-align: center;
+  width: 120px;
+}
+
+.io-data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.io-data-table tbody tr {
+  transition: background-color 0.15s;
+}
+
+.io-data-table tbody tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* Table Style Variations */
+.io-data-table.table-striped tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.io-data-table.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.io-data-table.table-bordered th,
+.io-data-table.table-bordered td {
+  border: 1px solid #ddd;
+}
+
+/* Action Cell */
+.action-cell {
+  text-align: center;
+}
+
+/* Publish Button */
+.publish-btn {
+  padding: 6px 16px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.publish-btn:hover {
+  background-color: #0052a3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.publish-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.publish-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.publish-btn.success {
+  background-color: #4caf50;
+  animation: success-pulse 0.5s;
+}
+
+.publish-btn.error {
+  background-color: #f44336;
+  animation: error-shake 0.5s;
+}
+
+@keyframes success-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes error-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .io-data-table {
+    font-size: 11px;
+  }
+  
+  .io-data-table th,
+  .io-data-table td {
+    padding: 6px 8px;
+  }
+  
+  .publish-btn {
+    padding: 4px 12px;
+    font-size: 11px;
+    min-width: 60px;
+  }
+}
+
+/* Loading State */
+.io-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #999;
+}
+
+.io-loading::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #0066cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip (future enhancement) */
+.io-tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 1000;
+}

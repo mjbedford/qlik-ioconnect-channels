@@ -28,6 +28,21 @@ The main extension that enables Qlik Sense to publish data to io.Connect channel
 
 [View detailed documentation →](./qlik-ioconnect-channels-extension/README.md)
 
+### Qlik io.Connect Context Extension
+
+An additional extension that shares Qlik application context (selections, active sheet, bookmarks and lightweight metadata) with io.Connect-enabled applications so connected tools can react to the user's current analytic context.
+
+**Location**: [`qlik-ioconnect-context-extension/`](./qlik-ioconnect-context-extension)
+
+**Key Features**:
+- Broadcast current selection state and active sheet to other applications
+- Publish bookmarks and small metadata payloads for downstream apps to consume
+- Automatic and manual sync modes to control when context is sent
+- Lightweight UI for selecting which parts of the app context to publish
+- Integrates with the io.Connect Browser gateway for publish/subscribe flows
+
+[View detailed documentation →](./qlik-ioconnect-context-extension/README.md)
+
 ### Sample Data Files
 
 Test data files for development and demonstration purposes:
