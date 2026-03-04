@@ -1,8 +1,9 @@
-import './qlik-ioconnect-channels.css';
+//import IOBrowser from '@interopio/browser';
 
-define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
+//define(['jquery', 'qlik', 'css!./qlik-ioconnect-channels.css'], function ($, qlik) {  'use strict';
+  define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
   // Global io.Connect instance
-  let ioInstance = null;
+  let io = null;
   let isInitializing = false;
   let initializationPromise = null;
 
@@ -13,13 +14,13 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
     console.log('Initializing io.Connect Browser...');
     const desktopConfig = { channels: true };
 
-    ioInstance = await IODesktop(desktopConfig);
+    io = await IODesktop(desktopConfig);
 
-    console.log(`io.Connect JS version ${ioInstance.version} has been successfully initialized!`);
-    console.log(`Channels are ${ioInstance.channels ? "enabled" : "disabled"}.`);
-    if (ioInstance) {
-      console.log('returning io.Connect instance:', ioInstance);
-      return ioInstance;
+    console.log(`io.Connect JS version ${io.version} has been successfully initialized!`);
+    console.log(`Channels are ${io.channels ? "enabled" : "disabled"}.`);
+    if (io) {
+      console.log('returning io.Connect instance:', io);
+      return io;
     }
 
     // if (isInitializing) {
@@ -34,24 +35,24 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
     //   channels: {
     //     enabled: true
     //   }
-    // }).then(io => {
-    //   ioInstance = io;
+    // }).then(instance => {
+    //   io = instance;
     //   isInitializing = false;
-    //   console.log('✓ io.Connect Browser initialized. Version:', io.version);
-    //   return io;
+    //   console.log('✓ io.Connect Browser initialized. Version:', instance.version);
+    //   return instance;
     // }).catch(error => {
     //   isInitializing = false;
     //   console.error('✗ Failed to initialize io.Connect Browser:', error);
     //   throw error;
     // });
 
-    return ioInstance;
+    return io;
   }
 
   /**
    * Publish data to an io.Connect channel
    */
-  async function publishToChannel(io, channelName, data) {
+  async function publishToChannel(channelName, data) {
     console.log(`Publishing data to channel: ${channelName}`, data);
     console.log('Current io.Connect version:', io.version);
     try {
@@ -83,7 +84,7 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
         dimensions: {
           uses: "dimensions",
           min: 0,
-          max: 3
+          max: 10
         },
         measures: {
           uses: "measures",
@@ -218,8 +219,8 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
 
       // Add connection status if enabled
       if (config.showStatus) {
-        const statusClass = ioInstance ? 'connected' : 'disconnected';
-        const statusText = ioInstance
+        const statusClass = io ? 'connected' : 'disconnected';
+        const statusText = io
           ? `✓ Connected to ${config.gatewayUrl}`
           : '✗ Not connected';
 
@@ -227,7 +228,7 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
           <div class="io-status ${statusClass}">
             <span class="status-indicator"></span>
             <span class="status-text">${statusText}</span>
-            ${!ioInstance && config.autoInitialize ? '<button class="io-connect-btn">Connect</button>' : ''}
+            ${!io && config.autoInitialize ? '<button class="io-connect-btn">Connect</button>' : ''}
           </div>
         `);
       }
@@ -314,7 +315,7 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
         const rowData = hypercube.qDataPages[0].qMatrix[rowIndex];
 
         // Initialize io.Connect if not already done
-        if (!ioInstance) {
+        if (!io) {
           try {
             $btn.prop('disabled', true).text('Connecting...');
             await initializeIOConnect(config);
@@ -356,8 +357,8 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
         try {
           $btn.prop('disabled', true).text('Publishing...');
           console.log('Publishing payload:', payload);
-          console.log('Using io.Connect instance:', ioInstance);
-          await publishToChannel(ioInstance, config.channelName, payload);
+          console.log('Using io.Connect instance:', io);
+          await publishToChannel(config.channelName, payload);
 
           // Visual feedback
           $btn.addClass('success').text('Published!');
@@ -389,7 +390,7 @@ define(['jquery', 'qlik'], function ($, qlik) {  'use strict';
       });
 
       // Auto-initialize if configured
-      if (config.autoInitialize && !ioInstance && !isInitializing) {
+      if (config.autoInitialize && !io && !isInitializing) {
         initializeIOConnect(config).catch(error => {
           console.warn('Auto-initialization failed:', error);
         });
